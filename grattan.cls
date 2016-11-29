@@ -426,6 +426,14 @@ top=2.70cm, bottom=2.65cm,
 \setlength{\@fpbot}{36.64366pt plus 1fil minus 36.64366pt}
 \setkeys{Gin}{width=\columnwidth}
 
+\newlength{\grattanfptop}
+\setlength{\grattanfptop}{36.64366pt}
+
+\newlength{\grattanfptopminustextheight}
+\setlength{\grattanfptopminustextheight}{\textheight}
+\addtolength{\grattanfptopminustextheight}{-\grattanfptop}
+
+
 \newenvironment{figureTop}{
 \begin{figure}
 \begin{minipage}[\textheight]{\linewidth}
