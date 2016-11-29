@@ -109,6 +109,14 @@ numbers=noenddot,
 {\advance\@tempcnta-2}
 {\advance\@tempcnta-2 }{\typeout{patch ok}}{\ERRORpatchFaild}
 
+% Hack for Chapter references
+\newcommand{\topref}[1]% #1 = label
+{\hyperlink{page.\getpagerefnumber{#1}}{\getrefnumber{#1}}}
+
+\newcommand{\Chapref}[1]{Chapter~\topref{#1}}
+\newcommand{\Chaprefrange}[1]{\Crefrange{#1}}
+\newcommand{\Chapsref}[1]{Chapters~\topref{#1}}
+
 % Make url formatting the same
 \urlstyle{same}
 
