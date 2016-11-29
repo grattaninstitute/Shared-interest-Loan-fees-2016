@@ -19,6 +19,7 @@
 # *.eps
 *.pdf
 !atlas/Charts.pdf
+!logos/*.pdf
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
