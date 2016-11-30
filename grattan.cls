@@ -10,6 +10,7 @@ chapterprefix=false,
 headsepline,
 twocolumn,
 numbers=noenddot,
+bibliography=totoc,
 ]{scrreprt}
 
 % Continuous numbering
@@ -101,7 +102,8 @@ numbers=noenddot,
 %   \chapter[\protect\jumplink{ch\thechapter}{#1}]{#1}%
 %   \outline[fit=fitv]{1}[ch\thechapter]{#1}%
 % }
-\RequirePackage[colorlinks, colorlinks = true, urlcolor=blue, linkcolor=black,citecolor=blue, hypertexnames=false, hidelinks]{hyperref}
+\RequirePackage[colorlinks, colorlinks = true, urlcolor=blue, linkcolor=black,citecolor=blue, hypertexnames=false, hidelinks,
+bookmarksdepth=1,bookmarksopen]{hyperref}
 \RequirePackage{cleveref}
 
 % For previous page for 'varioref'
@@ -911,3 +913,7 @@ top=2.70cm, bottom=2.65cm,
   \end{multicols}\end{mdframed}
   \twocolumn
 }
+
+\defbibheading{bibliography}[\bibname]{%
+\addchap{#1}%
+\markboth{#1}{#1}}
