@@ -16,3 +16,17 @@
 
 
 \setlength{\textfloatsep}{1.75\baselineskip}
+
+
+\newcommand*{\NotesAndSource}[2]{%
+\captionsetup{format=plain, font={footnotesize, it}, skip=3pt, justification=RaggedRight, singlelinecheck=false, position=below}
+\caption*{Notes and source:\ #1}
+}
+
+
+% Move Table of contents and List of Figures up 
+% so that List of Figures is on one page
+\setlength\cftbeforetoctitleskip{11pt}
+\setlength\cftaftertoctitleskip{5pt}
+\setlength\cftbeforeloftitleskip{11pt}
+\setlength\cftafterloftitleskip{5pt}
