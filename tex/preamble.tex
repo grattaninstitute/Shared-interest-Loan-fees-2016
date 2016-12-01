@@ -1,13 +1,16 @@
 
 \usepackage{relsize}
-\usepackage[toc,acronym]{glossaries}
+\usepackage[toc,acronym,section=section,translate=babel]{glossaries}
 \newcommand*{\abbrev}[1]{{\relsize{-0.5}\uppercase{#1}}}
 \defglsentryfmt[acronym]{\abbrev{\glsentrytext{\glslabel}}}
 %\renewcommand*{\acronymfont}[1]{\abbrev{#1}}
 \input{tex/acronyms}
 \input{tex/glossary}
 \makeglossaries
-
+\addto\captionsenglish
+{%
+\renewcommand*{\acronymname}{Acronyms and initialisms}
+}
 \usepackage{soul}
 \usepackage{bbding}
 %\newcommand{\warn}[1]{\GenericWarning{LaTeX Warning: #1}{LaTeX Warning: #1}{\textcolor{red}{\XSolidBold} #1 \textcolor{red}{\XSolidBold}}}
