@@ -3,6 +3,8 @@
 \usepackage[toc,acronym,section=section,translate=babel]{glossaries}
 \newcommand*{\abbrev}[1]{{\relsize{-0.5}\uppercase{#1}}}
 \defglsentryfmt[acronym]{\abbrev{\glsentrytext{\glslabel}}}
+% make numbers slightly smaller
+\renewcommand*{\glsnumberformat}[1]{{\small #1}}
 %\renewcommand*{\acronymfont}[1]{\abbrev{#1}}
 \input{tex/acronyms}
 \input{tex/glossary}
@@ -11,6 +13,7 @@
 {%
 \renewcommand*{\acronymname}{Acronyms and initialisms}
 }
+
 
 
 \setlength{\textfloatsep}{1.75\baselineskip}
@@ -28,3 +31,49 @@
 \setlength\cftaftertoctitleskip{5pt}
 \setlength\cftbeforeloftitleskip{11pt}
 \setlength\cftafterloftitleskip{5pt}
+
+% \makeatletter
+
+% \def\@outputdblcol{%
+%   \if@firstcolumn
+%     \global\@firstcolumnfalse
+%     \global\setbox\@leftcolumn\copy\@outputbox
+%     \splitmaxdepth\maxdimen
+%     \vbadness\maxdimen
+%      \setbox\@outputbox\vbox{\unvbox\@outputbox\unskip}%
+%      \setbox\@outputbox\vsplit\@outputbox to\maxdimen
+%     \toks@\expandafter{\topmark}%
+%     \xdef\@firstcoltopmark{\the\toks@}%
+%     \toks@\expandafter{\splitfirstmark}%
+%     \xdef\@firstcolfirstmark{\the\toks@}%
+%     \ifx\@firstcolfirstmark\@empty
+%       \global\let\@setmarks\relax
+%     \else
+%       \gdef\@setmarks{%
+%         \let\firstmark\@firstcolfirstmark
+%         \let\topmark\@firstcoltopmark}%
+%     \fi
+%   \else
+%     \global\@firstcolumntrue
+%     \setbox\@outputbox\vbox{%
+%      \hb@xt@\textwidth{%
+% \vbox{%
+%        \hb@xt@\columnwidth{\box\@leftcolumn \hss}%
+% %        \hfil
+% %        {\normalcolor\vrule \@width\columnseprule}%
+% %        \hfil
+% \hrule
+%        \hb@xt@\columnwidth{\box\@outputbox \hss}}%
+% }%
+%    }%
+%   \@combinedblfloats
+%     \@setmarks
+%     \@outputpage
+%     \begingroup
+%       \@dblfloatplacement
+%       \@startdblcolumn
+%       \@whilesw\if@fcolmade \fi{\@outputpage
+%      \@startdblcolumn}%
+%     \endgroup
+%   \fi}%
+% \makeatother
