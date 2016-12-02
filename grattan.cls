@@ -637,32 +637,23 @@ top=2.70cm, bottom=2.65cm,
     \usebibmacro{textcite}}}
 
 % The following lines give the correct footcite Author (Year) but make the ibid erroneous
-% Author (ibid) % use ifciteibid
-\DeclareFieldFormat{citehyperref}{%
-  \DeclareFieldAlias{bibhyperref}{noformat}% Avoid nested links
-  \bibhyperref{#1}}
+	% Author (ibid) % use ifciteibid
+	\DeclareCiteCommand{\footcite}[\mkbibfootnote]
+	  {\boolfalse{cbx:parens}}
+	  {\usebibmacro{citeindex}%
+	  \ifciteibid{Ibid.}{%  % for ibidem
+	   \iffirstcitekey
+	     {\setcounter{textcitetotal}{1}}
+	     {\stepcounter{textcitetotal}%
+	      \textcitedelim}%
+	   \usebibmacro{textcite}}%
+	   }
+	  {\ifbool{cbx:parens}
+	     {\bibcloseparen\global\boolfalse{cbx:parens}}
+	    {}}
+	  {\usebibmacro{textcite:postnote}}
+	\newcommand{\gcite}[1]{{\citeauthor{#1} (\citedate{#1})}}
 
-\renewbibmacro*{cite}{\printtext[citehyperref]{%
-  \global\boolfalse{cbx:loccit}%
-  \iffieldundef{shorthand}
-    {\ifthenelse{\ifciteibid\AND\NOT\iffirstonpage}
-       {\usebibmacro{cite:ibid}}
-       {\ifthenelse{\ifnameundef{labelname}\OR\iffieldundef{labelyear}}
-          {\usebibmacro{cite:label}%
-           \setunit{\addspace}}
-          {\printnames{labelname}%
-           \setunit{\nameyeardelim}}%
-        \usebibmacro{cite:paren:labelyear+extrayear}}}
-    {\usebibmacro{cite:shorthand}}}}
-
-\renewbibmacro*{cite:paren:labelyear+extrayear}{%
-  \iffieldundef{labelyear}
-    {}
-    {\printtext[parens]{%
-       \printfield{labelyear}%
-       \printfield{extrayear}}}}
-
-\newcommand{\gcite}[1]{{\citeauthor{#1} (\citedate{#1})}}
 % removes intersentence space after et al.
 \xpatchcmd\citeauthor{\begingroup}{\begingroup\aftergroup\@}{}{}
 \xpatchcmd\textcite{\begingroup}{\begingroup\aftergroup\@}{}{}
