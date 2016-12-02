@@ -446,7 +446,7 @@ top=2.70cm, bottom=2.65cm,
 
 \newenvironment{figureTop}{
 \begin{figure}
-\begin{minipage}[\textheight]{\linewidth}
+\begin{minipage}[t][\textheight]{\linewidth}
 }{%
 \end{minipage}
 \end{figure}
