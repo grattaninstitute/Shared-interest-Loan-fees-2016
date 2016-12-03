@@ -183,3 +183,4 @@ TSWLatexianTemp*
 *~[0-9]*
 .Rproj.user
 *.Rproj
+*.Rhistory
