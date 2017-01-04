@@ -230,7 +230,7 @@ bookmarksdepth=1,bookmarksopen]{hyperref}
 
 % Captions in general
 \DeclareCaptionFont{theGrey}{\color{theGrey}}
-\captionsetup{format=plain,font={small,bf,theGrey},labelfont={small,bf,theGrey},aboveskip=1pt}
+\captionsetup{format=plain,font={small,bf,theGrey},labelfont={small,bf,theGrey},skip=0pt}
 % suppress hyphenation in caption
 \DeclareCaptionJustification{nohyphen}{\hyphenpenalty=10000}
 \captionsetup{justification=nohyphen}
@@ -429,7 +429,7 @@ top=2.70cm, bottom=2.65cm,
 % length of fptop is magical: equal to the 
 \newlength{\@chaproom}
 \setlength{\@chaproom}{33.64366pt}
-\setlength{\@fptop}{36.64366pt minus 36.64366pt}
+\setlength{\@fptop}{33.64366pt minus 33.64366pt}
 \let\oldtryfcolumn=\@tryfcolumn
 \def\@tryfcolumn{\addtolength{\@fptop}{\dimexpr \@colht-\textheight}%
   \oldtryfcolumn}
